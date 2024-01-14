@@ -1,5 +1,12 @@
 package main
 
+import (
+	"dev11/controller"
+	"dev11/service"
+	"fmt"
+	"net/http"
+)
+
 /*
 === HTTP server ===
 
@@ -23,5 +30,10 @@ package main
 */
 
 func main() {
-
+	service := service.NewService()
+	router := controller.NewController(service)
+	err := http.ListenAndServe(":80", router.GetRouter())
+	if err != nil {
+		fmt.Println(err.Error())
+	}
 }
