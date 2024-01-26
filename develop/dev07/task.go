@@ -5,7 +5,7 @@ import (
 	"math/rand"
 	"time"
 )
-
+//comment
 func getChan(name string) <- chan string{
 	ch := make(chan string, 10)
 	go func(){
